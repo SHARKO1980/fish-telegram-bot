@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fish-soligorsk-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python telegram_bot.py
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: AIAI_API_KEY
+        sync: false
+      - key: AIAI_BASE_URL
+        value: https://api.aiai.by/v1
+      - key: PORT
+        value: 8080
